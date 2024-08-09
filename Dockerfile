@@ -1,13 +1,6 @@
-ARG PYTHON_VERSION=3.11
+ARG PYTHON_VERSION=3.11-slim
 
 FROM python:${PYTHON_VERSION}
-
-RUN apt-get update && apt-get install -y \
-    python3-pip \
-    python3-venv \
-    python3-dev \
-    python3-setuptools \
-    python3-wheel
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -19,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9080"]
